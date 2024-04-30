@@ -1,0 +1,258 @@
+.app-header {
+
+    padding: 10px;
+    height: 88px;
+    display: grid;
+    align-items: center;
+    font-family: Figtree-light;
+    grid-auto-flow: column;
+    grid-template-columns: 300px 1fr 300px;
+    position: sticky;
+    top: 0;
+    background: rgb(255, 255, 255, 0.9);
+    z-index: 1;
+
+    .backdrop {
+        position: fixed;
+        height: 200vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0);
+        transition: 0.5s;
+        pointer-events: none;
+
+        &.active {
+            background-color: rgba(0, 0, 0, 0.5);
+            pointer-events: auto;
+
+        }
+    }
+
+    .header-logo {
+        justify-self: center;
+        text-transform: uppercase;
+        font-family: Figtree;
+        font-size: 1.5em;
+    }
+
+    .header-user-container {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: center;
+        align-items: center;
+        column-gap: 14px;
+        font-size: 14px;
+        .login-signup-container {
+            display: grid;
+            position: relative;
+            cursor: pointer;
+        }
+    }
+
+    .login-signup-menu-container {
+        width: 50rem;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        position: fixed;
+        background-color: #fff;
+        transform: translateX(100%);
+        transition: 0.3s;
+        z-index: 11;
+        box-shadow: inset -1px 0 0 #e1e1e1;
+
+        &.active {
+            transform: translateX(0%);
+        }
+    }
+
+
+
+    .header-actions-container {
+        display: grid;
+        grid-auto-flow: column;
+        column-gap: 1.5em;
+        padding: 0;
+        align-items: center;
+
+
+        .menu-header,
+        .search-header {
+            cursor: pointer;
+            display: grid;
+            grid-auto-flow: column;
+            column-gap: 7px;
+            align-items: center;
+        }
+
+        .menu-header {
+            margin-left: calc(3.125vw - .5rem);
+            z-index: 111;
+
+            .menu-icon {
+                padding-top: 6px;
+                // transform: translateY(0%); 
+                // animation: rotateIcon 0.5s ease-in-out forwards; // Apply keyframe animation for rotating the icon
+            }
+
+            .menu-text {
+                // animation: changeTextColor 0.5s ease-in-out forwards; // Apply keyframe animation for changing the text color
+            }
+        }
+
+        .search-header {}
+    }
+
+
+
+    nav {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: start;
+        column-gap: 14px;
+        padding: 5px;
+        color: #000;
+        font-size: 14px;
+        align-items: center;
+    }
+
+    .menu-nav {
+        width: 30rem;
+        top: 0;
+        height: 100vh;
+        position: fixed;
+        background-color: #fff;
+        left: 0;
+        transform: translateX(-100%);
+        transition: 0.3s;
+        z-index: 11;
+        box-shadow: inset -1px 0 0 #e1e1e1;
+
+        &.active {
+            transform: translateX(0%);
+        }
+
+        .menu-nav-list {
+            display: grid;
+            padding-left: 3.125vw;
+            padding-right: 3.125vw;
+            margin-top: 88px;
+
+            .menu-nav-list-item {
+                height: 52px;
+                display: grid;
+                align-items: center;
+                display: grid;
+                grid-auto-flow: column;
+                justify-content: space-between;
+                cursor: pointer;
+
+
+                &:hover .menu-nav-list-item-title {
+                    box-shadow: 0px 1px 0px 0px black;
+                }
+
+                &:hover svg {
+                    opacity: 0.9;
+                }
+
+                svg {
+                    opacity: 0;
+                    transition: 0.4s;
+                    width: 1rem;
+                }
+
+                .menu-nav-list-item-title {
+                    font-size: 1.5em;
+                    text-transform: capitalize;
+                    box-shadow: 0px 0px 0px 0px transparent;
+                    width: max-content;
+                    transition: 0.5s ease-in;
+                }
+            }
+        }
+    }
+
+    .products-filter {
+        position: fixed;
+        width: 100vw;
+        height: 88px;
+        background-color: white;
+        z-index: 11111;
+        top: 0;
+        left: 0;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        box-shadow: inset 0px -1px 0px 0px #e1e1e1;
+        grid-auto-flow: column;
+        transform: translateY(-100%);
+        transition: 0.3s;
+
+        &.active {
+            transform: translateY(0%);
+        }
+
+        .close-filter-btn {
+            position: absolute;
+            right: 3.125vw;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .input-container {
+            width: 45rem;
+            position: relative;
+
+            .search-icon-input-container {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                padding-left: 1rem;
+                padding-bottom: 2px;
+
+                svg {
+                    color: #494949;
+                }
+            }
+
+            .global-search-input {
+                width: 100%;
+                height: 44px;
+                border-radius: 100vmax;
+                padding: 0 1rem 0 2.75rem;
+                font-family: Figtree;
+                outline: none;
+                border: 1px solid #e1e1e1;
+                transition: 0.3s;
+
+                &:focus {
+                    border: 1px solid #767676;
+                }
+
+                &:hover {
+                    border: 1px solid #767676;
+                }
+            }
+        }
+    }
+
+    // nav a:not(:first-child) {
+    //     border-top: 1px solid $clr1;
+    //     padding: 0 5px;
+    //     margin: 10px;
+    // }
+
+    // nav .active {}
+
+
+}
+
+@keyframes rotateIcon {
+    0% {
+        transform: rotate(0deg); // Start position of the icon
+    }
+
+    100% {
+        transform: rotate(180deg); // End position of the icon
+    }
+}

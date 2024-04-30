@@ -1,0 +1,39 @@
+.home-page {
+    font-family: Figtree;
+    display: grid;
+    justify-items: center;
+
+    .home-collection-title {
+        font-size: 2em;
+        color: #000;
+        font-family: Figtree-light;
+    }
+
+    .home-collections-list {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: repeat(auto-fill, 25%);
+        font-size: 1rem;
+
+        .home-collection-card {
+            display: grid;
+            padding: 7px;
+
+            .home-collection-list-name {
+                text-align: center;
+                padding-top: 7px;
+            }
+        }
+    }
+}
+
+.welcome-img-container {
+    padding-bottom: 6rem;
+    width: 100%;
+
+    img {
+        object-fit: cover;
+        height: 40vh;
+        opacity: 0.9;
+    }
+}
